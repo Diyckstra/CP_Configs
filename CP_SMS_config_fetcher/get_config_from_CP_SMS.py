@@ -581,7 +581,7 @@ else:
 
 # ------------ P O L I C Y ------------------------------------------------
 
-firewall_policys = []
+firewall_policies = []
 CP_SMS_response_access_layers_status, CP_SMS_response_access_layers = CP_api_call(CP_SMS_fw_address, CP_SMS_fw_api_port, 'show-access-layers', {"limit": LIMIT}, CP_SMS_auth_token)
 
 if CP_SMS_response_access_layers_status == 200:
@@ -589,11 +589,11 @@ if CP_SMS_response_access_layers_status == 200:
     for access_layer in CP_SMS_response_access_layers['access-layers']:
         CP_SMS_response_access_layer_status, CP_SMS_response_access_layer = CP_api_call(CP_SMS_fw_address, CP_SMS_fw_api_port, 'show-access-layer', {"name": access_layer["name"]}, CP_SMS_auth_token)
         if CP_SMS_response_access_layer["firewall"]:
-            firewall_policys.append(CP_SMS_response_access_layer["name"])
+            firewall_policies.append(CP_SMS_response_access_layer["name"])
 else:
     logger.error(f"Policy access layers not received from CP SMS {CP_SMS_fw_address}")
 
-for firewall_access_layer in firewall_policys:
+for firewall_access_layer in firewall_policies:
 
     get_rulebase_package_responce = CP_SMS_get_rulebase_from_policy(CP_SMS_fw_address, CP_SMS_fw_api_port, CP_SMS_auth_token, firewall_access_layer)
     if get_rulebase_package_responce["total"] > 0:
