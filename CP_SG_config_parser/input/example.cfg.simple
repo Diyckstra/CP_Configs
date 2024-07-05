@@ -1,0 +1,105 @@
+#
+# Configuration of Example
+# Language version: 12.1v1
+#
+set format date dd-mmm-yyyy
+set format time 24-hour
+set format netmask Dotted
+set web table-refresh-rate 15
+set web session-timeout 10
+set web ssl-port 4434
+set web daemon-enable on
+set core-dump enable
+set core-dump total 1000
+set core-dump per_process 2
+set snmp mode default
+set snmp agent off
+set snmp agent-version any
+set snmp community public read-only 
+set snmp traps trap authorizationError disable 
+set snmp traps trap coldStart disable 
+set snmp traps trap configurationChange disable 
+set snmp traps trap configurationSave disable 
+set snmp traps trap fanFailure disable 
+set snmp traps trap highVoltage disable 
+set snmp traps trap linkUpLinkDown disable 
+set snmp traps trap lowDiskSpace disable 
+set snmp traps trap lowVoltage disable 
+set snmp traps trap overTemperature disable 
+set snmp traps trap powerSupplyFailure disable 
+set snmp traps trap raidVolumeState disable 
+set snmp traps trap vrrpv2AuthFailure disable 
+set snmp traps trap vrrpv2NewMaster disable 
+set snmp traps trap vrrpv3NewMaster disable 
+set snmp traps trap vrrpv3ProtoError disable 
+set ipv6-state off
+set edition 32-bit
+set ntp active on
+set inactivity-timeout 10
+set max-path-splits 8
+set tracefile maxnum 10
+set tracefile size 1
+set arp table cache-size 4096
+set arp table validity-timeout 60
+set arp announce 2
+add arp proxy ipv4-address 192.168.5.4 interface eth5 real-ipv4-address 192.168.5.5
+add arp proxy ipv4-address 192.168.5.3 interface eth5 real-ipv4-address 192.168.5.5
+set lcd screensaver mode model
+set lcd screensaver timeout 30
+set syslog filename /var/log/messages 
+set syslog cplogs off 
+set syslog mgmtauditlogs on 
+set syslog auditlog permanent
+set interface eth1 state on
+add interface eth1 vlan 100
+set interface eth1 state on
+add interface eth1 vlan 101
+set interface eth1 state on
+add interface eth1 vlan 102
+set interface eth1 state on
+add interface eth1 vlan 103
+set interface eth3 state on
+add interface eth3 vlan 104
+set interface eth3 state on
+add interface eth3 vlan 105
+set interface eth3 state on
+add interface eth3 vlan 106
+set ospf area backbone on
+set net-access telnet off
+set management interface Mgmt  
+add allowed-client host any-host 
+set password-controls complexity 2
+set password-controls palindrome-check true
+set password-controls history-checking true
+set password-controls history-length 10
+set password-controls password-expiration never
+set password-controls expiration-warning-days 7
+set password-controls expiration-lockout-days never
+set password-controls force-change-when no
+set password-controls deny-on-nonuse enable false
+set password-controls deny-on-nonuse allowed-days 365
+set password-controls deny-on-fail enable false
+set password-controls deny-on-fail failures-allowed 10
+set password-controls deny-on-fail allow-after 1200
+set aaa tacacs-servers state off 
+set aaa radius-servers super-user-uid 96 
+set user admin shell /etc/cli.sh 
+set user monitor shell /etc/cli.sh 
+set user monitor password-hash * 
+add user winscp uid 0 homedir /home/winscp 
+set user winscp gid 100 shell /bin/bash 
+add rba user winscp roles  
+set installer policy check-for-updates-period 3 
+set installer policy periodically-self-update on 
+set installer policy auto-compress-snapshot on 
+set installer policy self-test install-policy off 
+set installer policy self-test network-link-up off 
+set installer policy self-test start-processes on 
+
+
+set clienv debug 0
+set clienv echo-cmd off
+set clienv output pretty
+set clienv prompt "%M"
+set clienv rows 0
+set clienv syntax-check off

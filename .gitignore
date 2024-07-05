@@ -1,0 +1,4 @@
+*.json
+*.cfg
+CP_SG_config_parser/logs
+CP_SMS_config_fetcher/logs
